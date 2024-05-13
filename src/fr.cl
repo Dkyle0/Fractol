@@ -61,38 +61,6 @@ __kernel void solve_g(__global int *r_color,
 				r_color[get_global_id(0)] = hwicc[4] + 30 * it;
 		}
 	}
-/*	else if (zyxtyx[3] == 3)
-	{
-		zx = -2 * ((double)(h / 2 - x + zyxtyx[2])) / zyxtyx[0] / h * 3.5;	
-		zy = -1.5 * ((double)(h / 2 - y + zyxtyx[1])) / zyxtyx[0] / h * 2.5;
-		cx = zx;
-		cy = zy;
-		while ((zx * zx + zy * zy < 1000000) && ((cx * cx + cy * cy) > 0.0000001) && (it < hwicc[2]))
-		{
-			xtemp = zx * 2 / 3 + (zx * zy - zy * zy) / 3 / (zx * zx * zx * zx + 2 * zx * zx * zy * zy + zy * zy * zy * zy);
-			ytemp = zy * 2 / 3 * (1 - zx / (zx * zx * zx * zx + 2 * zx * zx * zy * zy + zy * zy * zy * zy));
-			if (xtemp > zx)
-				cx = xtemp - zx;
-			else
-				cx = zx - xtemp;
-			if (ytemp > zy)
-				cy = ytemp - zy;
-			else
-				cy = zy - ytemp;
-			zx = cx;
-			zy = cy;
-			it++;
-		}
-		if (it >= hwicc[2])
-			r_color[get_global_id(0)] = hwicc[3];
-		else
-		{
-			if (hwicc[4] != 0x000000)
-				r_color[get_global_id(0)] = hwicc[4] * it;
-			else
-				r_color[get_global_id(0)] = hwicc[4] + 30 * it;
-		}	
-	} */
 	else if (zyxtyx[3] == 3)
 	{
 		zx = -2 * ((double)(w / 2 - x + w / 100 * 52.27 + zyxtyx[2])) / zyxtyx[0] / w * 4;
